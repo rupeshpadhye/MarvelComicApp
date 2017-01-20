@@ -1,4 +1,4 @@
-package com.marvel.android.app.model.endpoints;
+package com.marvel.android.app.model.repository.rest.endpoints;
 
 import com.marvel.android.app.model.entities.Comic;
 
@@ -13,7 +13,7 @@ import rx.Observable;
  */
 
 public interface MarvelApi {
-    @GET("/v1/public/characters")
-    Observable<List<Comic>> getComics (@Query("offset") int offset);
+    @GET("/v1/public/comics")
+    Observable<List<Comic>> getComics (@Query("limit") int limit,@Query("offset") int offset);
 
 }

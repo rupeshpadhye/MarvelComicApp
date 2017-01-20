@@ -3,12 +3,13 @@ package com.marvel.android.app.injector.modules;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import com.jakewharton.picasso.OkHttp3Downloader;
 import com.marvel.android.app.BuildConfig;
 import com.marvel.android.app.MarvelComicsApp;
-import com.marvel.android.app.model.endpoints.Endpoint;
-import com.marvel.android.app.model.endpoints.MarvelAuthorize;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.picasso.OkHttpDownloader;
+import com.marvel.android.app.model.repository.rest.RestDataSource;
+import com.marvel.android.app.model.repository.rest.RestDataSourceImpl;
+import com.marvel.android.app.model.repository.rest.endpoints.Endpoint;
+import com.marvel.android.app.model.repository.rest.endpoints.MarvelAuthorizer;
 import com.squareup.picasso.Picasso;
 
 import javax.inject.Named;
@@ -16,6 +17,7 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import okhttp3.OkHttpClient;
 import rx.Scheduler;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -38,13 +40,13 @@ public class AppModule {
         return PreferenceManager.getDefaultSharedPreferences(mApp);
     }
 
-    @Provides
-    MarvelAuthorize provideMarvelAuthorizer() {
-        return new MarvelAuthorize(BuildConfig.MARVEL_PUBLIC_KEY, BuildConfig.MARVEL_PRIVATE_KEY);
+    @Provides @Singleton
+    MarvelAuthorizer provideMarvelAuthorizer() {
+        return new MarvelAuthorizer(BuildConfig.MARVEL_PUBLIC_KEY, BuildConfig.MARVEL_PRIVATE_KEY);
     }
 
-    @Provides
-    Endpoint provideRestEndpoint() {
+    @Provides@Singleton
+    Endpoint provideEndpoint() {
         return new Endpoint("http://gateway.marvel.com/");
     }
 
@@ -52,10 +54,14 @@ public class AppModule {
         return  new OkHttpClient();
     }
 
+    @Provides @Singleton
+     RestDataSource provideRestDataSource(RestDataSourceImpl restDataSource) {
+        return restDataSource; }
+
     @Provides @Singleton public Picasso providePicasso(){
        return new Picasso.Builder(mApp)
-                .downloader(new OkHttpDownloader(provideOkHttpClient()))
-                .build();
+               .downloader(new OkHttp3Downloader(provideOkHttpClient()))
+               .build();
     }
 
     @Provides @Named("executor_thread")

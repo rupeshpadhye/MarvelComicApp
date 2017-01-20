@@ -1,7 +1,9 @@
 package com.marvel.android.app.model.business;
 
+import android.util.Log;
+
 import com.marvel.android.app.model.entities.Comic;
-import com.marvel.android.app.model.repository.ComicsRepository;
+import com.marvel.android.app.model.repository.rest.RestDataSource;
 
 import java.util.List;
 
@@ -12,18 +14,18 @@ import rx.Observable;
 import rx.Scheduler;
 import rx.functions.Action1;
 
-public class GetCharactersUsecase extends Usecase<List<Comic>> {
+public class GetComicsUseCase extends UseCase<List<Comic>> {
     public final static int DEFAULT_COMICS_LIMIT = 10;
     private int mComicsLimit = DEFAULT_COMICS_LIMIT;
-    private final ComicsRepository mRepository;
+    private final RestDataSource mRepository;
     private int mCurrentOffset;
 
     private final Scheduler mUiThread;
     private final Scheduler mExecutorThread;
 
-    @Inject public GetCharactersUsecase(ComicsRepository repository,
-        @Named("ui_thread") Scheduler uiThread,
-        @Named("executor_thread") Scheduler executorThread) {
+    @Inject public GetComicsUseCase(RestDataSource repository,
+                                    @Named("ui_thread") Scheduler uiThread,
+                                    @Named("executor_thread") Scheduler executorThread) {
 
         mRepository = repository;
         mUiThread = uiThread;
@@ -32,12 +34,13 @@ public class GetCharactersUsecase extends Usecase<List<Comic>> {
 
     @Override
     public Observable<List<Comic>> buildObservable() {
-        return mRepository.getComics(mCurrentOffset)
+        return mRepository.getComics(DEFAULT_COMICS_LIMIT,mCurrentOffset)
             .observeOn(mUiThread)
             .subscribeOn(mExecutorThread)
             .doOnError(new Action1<Throwable>() {
                 @Override
                 public void call(Throwable throwable) {
+                    Log.d("RUPESH",throwable.getMessage());
                     mCurrentOffset -= mComicsLimit;
                 }
             });

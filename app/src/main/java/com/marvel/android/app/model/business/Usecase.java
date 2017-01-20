@@ -7,7 +7,7 @@ package com.marvel.android.app.model.business;
 
 import rx.Observable;
 
-public abstract class Usecase<T> {
+public abstract class UseCase<T> {
     public abstract Observable<T> buildObservable();
 
     public Observable<T> execute() {

@@ -4,11 +4,11 @@
     <item>
         <color android:color="@color/colorPrimary"></color>
     </item>
-    <item>
-       <!-- <bitmap
+   <!-- <item>
+        <bitmap
             android:gravity="center_horizontal|center_vertical"
             android:src="@drawable/splash_screen"
-            />-->
-    </item>
+            />
+    </item>-->
 
 </layer-list>

@@ -5,8 +5,9 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.2'
-
+        classpath 'com.android.tools.build:gradle:2.2.3'
+        classpath 'com.google.guava:guava:19.0'
+        classpath 'me.tatarka:gradle-retrolambda:3.2.0'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -31,7 +32,7 @@ configure(allprojects) {
         butterKnifeVersion="8.4.0"
         okHttpVesion="2.2.0"
         picassoVersion="2.5.2"
-        daggerVersion="2.5"
+        daggerVersion="2.2"
         gsonVersion="2.2.4"
         rxJavaVersion="1.1.6"
         rxAndroidVersion="1.2.1"

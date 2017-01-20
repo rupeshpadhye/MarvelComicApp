@@ -1,4 +1,4 @@
-package com.marvel.android.app.model.endpoints;
+package com.marvel.android.app.model.repository.rest.endpoints;
 
 /**
  * Created by RUPESH on 1/19/2017.

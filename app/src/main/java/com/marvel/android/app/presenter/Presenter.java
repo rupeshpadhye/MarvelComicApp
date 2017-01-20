@@ -1,6 +1,6 @@
 package com.marvel.android.app.presenter;
 
-import android.view.View;
+import com.marvel.android.app.view.MvpView;
 
 /**
  * Created by RUPESH on 1/19/2017.
@@ -13,7 +13,8 @@ public interface Presenter {
 
     void onPause();
 
-    void attachView (View v);
+    void attachView (MvpView v);
 
     void onCreate();
+    void onCreateView();
 }
