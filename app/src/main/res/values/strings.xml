@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Marvel</string>
+    <string name="no_network">No Internet Connection</string>
+    <string name="something_wrong">Something went wrong</string>
+    <string name="Comics">Comics</string>
+    <string name="comics_detail">Comic Detail</string>
 </resources>

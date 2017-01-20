@@ -1,25 +1,25 @@
 package com.marvel.android.app.ui.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.marvel.android.app.MarvelComicsApp;
 import com.marvel.android.app.R;
-import com.marvel.android.app.model.entities.Comic;
-import com.marvel.android.app.ui.fragment.ComicsGridFragment;
-import com.marvel.android.app.util.AppConstants;
+import com.marvel.android.app.ui.fragment.ComicDetailFragment;
 
-public class MainActivity extends AppCompatActivity implements ComicsGridFragment.OnGridItemSelected {
+/**
+ * Created by RUPESH on 1/20/2017.
+ */
 
+public class ComicsDetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.grid_item_detail_activity);
         MarvelComicsApp.getAppComponent(this).inject(this);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new ComicsGridFragment())
+                    .add(R.id.comic_detail_fragment, new ComicDetailFragment())
                     .commit();
         }
 
@@ -41,11 +41,6 @@ public class MainActivity extends AppCompatActivity implements ComicsGridFragmen
         super.onBackPressed();
     }
 
-    @Override
-    public void OnItemClicked(Comic comic) {
-        Intent intent = new Intent(this, ComicsDetailActivity.class)
-                .putExtra(AppConstants.EXTRA_COMIC_DETAIL, comic);
-        startActivity(intent);
 
-    }
+
 }

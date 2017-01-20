@@ -1,10 +1,12 @@
 package com.marvel.android.app.model.entities;
 
+import java.io.Serializable;
+
 /**
  * Created by RUPESH on 1/19/2017.
  */
 
-public class Character {
+public class Character implements Serializable {
     private int id;
     private int imageResource;
     private String name;

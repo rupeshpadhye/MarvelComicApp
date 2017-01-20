@@ -2,8 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/product_list_item"
+    android:id="@+id/grid_item"
     >
+
 
     <android.support.v7.widget.CardView
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
@@ -15,17 +16,16 @@
         card_view:cardCornerRadius="@dimen/cardview_default_elevation"
         android:layout_marginBottom="@dimen/cardview_default_elevation">
 
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             >
             <ImageView
-                android:id="@+id/product_img"
+                android:id="@+id/thumbnail"
                 android:layout_width="200dp"
                 android:layout_height="140dp"
-                android:contentDescription="@string/action_settings"
+                android:contentDescription="@string/app_name"
                 android:scaleType="centerCrop"
                 />
 
@@ -33,31 +33,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:background="@color/colorPrimaryDark"
+                android:background="@color/cardview_light_background"
                 android:layout_gravity="left"
                 >
             <TextView
-                android:id="@+id/product_name"
+                android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="13sp"
-                android:textColor="@color/cardview_light_background"
-                android:layout_below="@+id/product_img"
+                android:lines="2"
+                android:ellipsize="marquee"
+                android:textColor="@color/colorPrimary"
+                android:layout_below="@+id/thumbnail"
                 android:layout_alignParentBottom="true"
                 android:layout_marginLeft="@dimen/app_default_margin"
+                android:textDirection="anyRtl"
+                android:textStyle="bold"
                  />
-          <!--  <TextView
-                android:id="@+id/product_price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="13sp"
-                android:text="From 400 Rs"
-                android:textColor="@color/cardview_light_background"
-                android:layout_below="@+id/product_img"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="@dimen/app_default_margin"
-                 />-->
-            </LinearLayout>
+
+                </LinearLayout>
         </LinearLayout>
-    </android.support.v7.widget.CardView>
+     </android.support.v7.widget.CardView>
 </LinearLayout>

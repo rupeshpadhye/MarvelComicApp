@@ -1,16 +1,17 @@
 package com.marvel.android.app.model.entities;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by RUPESH on 1/19/2017.
  */
 
-public class Creator {
+public class Creator implements Serializable {
     int available;
     int returned;
     int collectionURI;
-    List<CreatorSummary> creatorSummaryList;
+    List<Summary> creatorSummaryList;
 
     public int getAvailable() {
         return available;
@@ -36,11 +37,11 @@ public class Creator {
         this.collectionURI = collectionURI;
     }
 
-    public List<CreatorSummary> getCreatorSummaryList() {
+    public List<Summary> getCreatorSummaryList() {
         return creatorSummaryList;
     }
 
-    public void setCreatorSummaryList(List<CreatorSummary> creatorSummaryList) {
+    public void setCreatorSummaryList(List<Summary> creatorSummaryList) {
         this.creatorSummaryList = creatorSummaryList;
     }
 }

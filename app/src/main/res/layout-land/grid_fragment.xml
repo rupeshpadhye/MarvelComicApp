@@ -12,20 +12,17 @@
         android:visibility="gone"
         >
     </android.support.v4.widget.SwipeRefreshLayout>
-
-    <GridView
-        android:id="@+id/grid"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:columnWidth="200dp"
-        android:fillViewport="true"
-        android:gravity="center"
-        android:horizontalSpacing="0dp"
-        android:numColumns="2"
-        android:stretchMode="columnWidth"
-        android:verticalSpacing="0dp"
-        android:visibility="invisible" />
-
+        <GridView
+            android:id="@+id/grid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:gravity="center"
+            android:horizontalSpacing="0dp"
+            android:numColumns="3"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="0dp"
+            android:visibility="visible" />
 
     <ProgressBar
         style="@style/Widget.AppCompat.ProgressBar"

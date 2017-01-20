@@ -7,8 +7,10 @@ package com.marvel.android.app.injector.components;
 
 
 import com.marvel.android.app.injector.modules.AppModule;
+import com.marvel.android.app.ui.activity.ComicsDetailActivity;
 import com.marvel.android.app.ui.activity.MainActivity;
 import com.marvel.android.app.ui.activity.SplashActivity;
+import com.marvel.android.app.ui.fragment.ComicDetailFragment;
 import com.marvel.android.app.ui.fragment.ComicsGridFragment;
 
 import javax.inject.Singleton;
@@ -20,5 +22,7 @@ import dagger.Component;
 public interface AppComponent  {
     SplashActivity inject(SplashActivity splashActivity);
     MainActivity inject(MainActivity activity);
+    ComicsDetailActivity inject(ComicsDetailActivity comicsDetailActivity);
     ComicsGridFragment  inject(ComicsGridFragment comicsGridFragment);
+    ComicDetailFragment inject(ComicDetailFragment comicDetailFragment);
 }
