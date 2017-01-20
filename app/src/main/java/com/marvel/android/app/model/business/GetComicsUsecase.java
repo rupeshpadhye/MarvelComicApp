@@ -1,7 +1,5 @@
 package com.marvel.android.app.model.business;
 
-import android.util.Log;
-
 import com.marvel.android.app.model.entities.Comic;
 import com.marvel.android.app.model.repository.rest.RestDataSource;
 
@@ -40,7 +38,6 @@ public class GetComicsUseCase extends UseCase<List<Comic>> {
             .doOnError(new Action1<Throwable>() {
                 @Override
                 public void call(Throwable throwable) {
-                    Log.d("RUPESH",throwable.getMessage());
                     mCurrentOffset -= mComicsLimit;
                 }
             });

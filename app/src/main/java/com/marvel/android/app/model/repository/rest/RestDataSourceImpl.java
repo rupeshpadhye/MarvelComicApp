@@ -1,12 +1,12 @@
 package com.marvel.android.app.model.repository.rest;
 
 
-import android.util.Log;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import com.marvel.android.app.model.entities.Character;
 import com.marvel.android.app.model.entities.Comic;
+import com.marvel.android.app.model.entities.Creator;
 import com.marvel.android.app.model.repository.rest.deserializer.MarvelComicDeserializer;
 import com.marvel.android.app.model.repository.rest.endpoints.Endpoint;
 import com.marvel.android.app.model.repository.rest.endpoints.MarvelApi;
@@ -50,7 +50,6 @@ public class RestDataSourceImpl implements RestDataSource {
                         new MarvelComicDeserializer())
                 .create();
 
-        Log.d("RUPESH",endpoint.getEndpoint());
         Retrofit marvelApiAdapter = new Retrofit.Builder()
                 .baseUrl(endpoint.getEndpoint())
                 .addConverterFactory(GsonConverterFactory.create(customGsonInstance))
@@ -64,8 +63,17 @@ public class RestDataSourceImpl implements RestDataSource {
 
     @Override
     public Observable<List<Comic>> getComics(int limit,int offset) {
-        Log.d("RUPESH","Calling getComics"+offset);
         return mMarvelApi.getComics(limit,offset);
+    }
+
+    @Override
+    public Observable<List<Character>> getComicCharacters(int comicId) {
+        return mMarvelApi.getComicCharacters(comicId);
+    }
+
+    @Override
+    public Observable<List<Creator>> getComicCreators(int comicId) {
+        return mMarvelApi.getComicCreators(comicId);
     }
 
 }
