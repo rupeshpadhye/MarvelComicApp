@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -98,7 +99,6 @@ public class ComicsGridFragment extends Fragment implements ComicsGridView {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Comic comic = mGridAdapter.getItem(position);
-                //mPosition = position;
                 comicsPresenter.onProductSelected(comic);
 
             }
@@ -115,18 +115,12 @@ public class ComicsGridFragment extends Fragment implements ComicsGridView {
                                  int visibleItemCount, int totalItemCount) {
                 int lastInScreen = firstVisibleItem + visibleItemCount;
                 if ((lastInScreen == totalItemCount)) {
+                    Log.d("RUPESH","Load more");
                     comicsPresenter.onListEndReached();
                 }
             }
         });
 
-        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                comicsPresenter.doPullToRefresh();
-            }
-
-        });
     }
 
 

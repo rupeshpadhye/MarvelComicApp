@@ -1,6 +1,8 @@
 package com.marvel.android.app.model.repository.rest;
 
 
+import android.util.Log;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -72,11 +74,13 @@ public class RestDataSourceImpl implements RestDataSource {
 
     @Override
     public Observable<List<Character>> getComicCharacters(int comicId) {
+        Log.d("RUPESH","sendingid"+comicId);
         return mMarvelApi.getComicCharacters(comicId);
     }
 
     @Override
     public Observable<List<Creator>> getComicCreators(int comicId) {
+        Log.d("RUPESH","For creator"+comicId);
         return mMarvelApi.getComicCreators(comicId);
     }
 

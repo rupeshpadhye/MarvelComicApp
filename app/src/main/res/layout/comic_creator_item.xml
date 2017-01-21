@@ -45,7 +45,7 @@
                     android:textColor="@color/colorPrimary"
                     android:text="Rupesh Padhye"
                     android:maxLines="1"
-                    style="@style/Base.TextAppearance.AppCompat.Title"
+                    style="@style/Base.TextAppearance.AppCompat.Medium"
                     android:ellipsize="end"
                     />
 
@@ -58,7 +58,6 @@
                     android:textColor="#303030"
                     android:maxLines="1"
                     android:ellipsize="end"
-                    android:text="Writer"
                     style="@style/Base.TextAppearance.AppCompat.Body1"
                     />
             </LinearLayout>

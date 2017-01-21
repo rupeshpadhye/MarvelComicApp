@@ -13,6 +13,7 @@
         >
     </android.support.v4.widget.SwipeRefreshLayout>
 
+
     <GridView
         android:id="@+id/grid"
         android:layout_width="match_parent"
@@ -25,7 +26,6 @@
         android:stretchMode="columnWidth"
         android:verticalSpacing="0dp"
         android:visibility="invisible" />
-
 
     <ProgressBar
         style="@style/Widget.AppCompat.ProgressBar"

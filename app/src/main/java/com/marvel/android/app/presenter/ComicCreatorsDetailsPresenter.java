@@ -5,10 +5,14 @@ import android.util.Log;
 import com.marvel.android.app.model.business.GetComicCreatorsCase;
 import com.marvel.android.app.model.entities.Comic;
 import com.marvel.android.app.model.entities.Creator;
+import com.marvel.android.app.model.entities.Summary;
 import com.marvel.android.app.view.ComicCreatorsDetailView;
 import com.marvel.android.app.view.MvpView;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -23,6 +27,7 @@ public class ComicCreatorsDetailsPresenter implements Presenter {
     private GetComicCreatorsCase mGetComicCreatorCase;
     private Comic mComic;
     private Subscription mComicsCretorSubscription;
+    Map<String,String> mcreatorMap =new HashMap<>();
     @Inject
     ComicCreatorsDetailsPresenter(GetComicCreatorsCase getComicCharactersCase){
         this.mGetComicCreatorCase =getComicCharactersCase;
@@ -60,7 +65,7 @@ public class ComicCreatorsDetailsPresenter implements Presenter {
     @Override
     public void onCreateView() {
         if(mComic.getCreators().getAvailable()>0){
-            mComicDetailView.showLoadingSpinner();
+            loadCreatorsFromComicSummary();
             fetchComicCreators();
         }
         else{
@@ -68,6 +73,19 @@ public class ComicCreatorsDetailsPresenter implements Presenter {
             mComicDetailView.hideCreatorList();
         }
 
+    }
+
+    private void loadCreatorsFromComicSummary() {
+        List<Creator> mCreatorList=new ArrayList<>();
+        List<Summary> creatorSummaryList=mComic.getCreators().getItems();
+        for(Summary summary :creatorSummaryList){
+              Creator creator=new Creator();
+              creator.setFullName(summary.getName());
+              creator.setRole(summary.getRole());
+              mcreatorMap.put(summary.getName(),summary.getRole());
+              mCreatorList.add(creator);
+        }
+        mComicDetailView.showCreatorList(mCreatorList);
     }
 
     private void fetchComicCreators() {
@@ -78,6 +96,11 @@ public class ComicCreatorsDetailsPresenter implements Presenter {
     }
 
     private void onResult(List<Creator> creatorList){
+        for(Creator creator:creatorList){
+            if(mcreatorMap.containsKey(creator.getFullName())){
+                creator.setRole(mcreatorMap.get(creator.getFullName()));
+            }
+        }
         Log.d("RUPESH","Creator list"+creatorList.toString());
         mComicDetailView.showCreatorList(creatorList);
         mComicDetailView.hideLoadingSpinner();

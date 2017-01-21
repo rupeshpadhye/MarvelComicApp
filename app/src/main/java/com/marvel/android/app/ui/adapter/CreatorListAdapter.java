@@ -72,6 +72,7 @@ public class CreatorListAdapter extends RecyclerView.Adapter<CreatorListAdapter.
 
         public void bindHolderItem(Creator creator) {
             fullName.setText(creator.getFullName());
+            role.setText(creator.getRole());
             if(creator.getThumbnail() !=null){
                 Picasso.with(mContext).load(creator.getThumbnail().getImageUrl()).placeholder(R.mipmap.ic_launcher).into(profileImg);
             }

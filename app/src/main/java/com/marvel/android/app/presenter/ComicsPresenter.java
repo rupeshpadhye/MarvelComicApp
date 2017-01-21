@@ -48,6 +48,7 @@ public class ComicsPresenter implements  Presenter {
         if(mComicsSubscription !=null){
             mComicsSubscription.unsubscribe();
         }
+        isRequestInProcess=false;
 
     }
 
@@ -125,6 +126,7 @@ public class ComicsPresenter implements  Presenter {
     }
 
     public void onListEndReached() {
+        Log.d("RUPESH","is Scroll in process"+isRequestInProcess);
         if(!isRequestInProcess){
             fetchComics();
         }

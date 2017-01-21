@@ -22,7 +22,7 @@ public class MarvelResultDeserializer<T> implements JsonDeserializer<List<T>> {
                                    JsonDeserializationContext context) throws JsonParseException {
         JsonElement data = je.getAsJsonObject().get("data");
         JsonElement results = data.getAsJsonObject().get("results");
-        Log.d("RUPESH comics",results.toString());
+        Log.d("RUPESH response is",results.toString());
         return new Gson().fromJson(results, typeOfT);
     }
 }

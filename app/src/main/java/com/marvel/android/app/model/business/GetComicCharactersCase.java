@@ -1,5 +1,7 @@
 package com.marvel.android.app.model.business;
 
+import android.util.Log;
+
 import com.marvel.android.app.model.entities.Character;
 import com.marvel.android.app.model.repository.rest.RestDataSource;
 
@@ -34,6 +36,7 @@ public class GetComicCharactersCase extends UseCase<List<Character>> {
 
     @Override
     public Observable<List<Character>> buildObservable() {
+        Log.d("RUPESH","Comic id is"+mComicId);
         return mRepository.getComicCharacters(mComicId)
                 .observeOn(mUiThread)
                 .subscribeOn(mExecutorThread);

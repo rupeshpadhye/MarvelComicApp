@@ -1,6 +1,6 @@
 <LinearLayout xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="73dp"
+    android:layout_height="wrap_content"
     android:layout_width="match_parent"
     android:focusable="true"
     android:clickable="true"
@@ -8,22 +8,54 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="72dp"
-        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         >
         <de.hdodenhof.circleimageview.CircleImageView
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/charecter_image"
-            android:layout_width="72dp"
-            android:layout_height="match_parent"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
             app:civ_border_width="1dp"
             android:src="@mipmap/ic_launcher"
             app:civ_border_color="@color/cardview_light_background"
             android:layout_gravity="center"
             android:paddingLeft="16dp"
             />
+        <TextView
+            android:id="@+id/character_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:maxLines="1"
+            style="@style/Base.TextAppearance.AppCompat.Medium"
+            android:layout_gravity="center"
+            android:ellipsize="end"
+            />
 
-        <LinearLayout
+
+        <TextView
+            android:id="@+id/character_desc"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:textColor="#303030"
+            style="@style/Base.TextAppearance.AppCompat.Body1"
+            />
+        <TextView
+            android:id="@+id/role"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:textColor="#303030"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="Writer"
+            style="@style/Base.TextAppearance.AppCompat.Body1"
+            />
+
+
+       <!-- <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
@@ -73,7 +105,7 @@
                     style="@style/Base.TextAppearance.AppCompat.Body1"
                     />
             </LinearLayout>
-        </LinearLayout>
+        </LinearLayout>-->
     </LinearLayout>
 
     <LinearLayout

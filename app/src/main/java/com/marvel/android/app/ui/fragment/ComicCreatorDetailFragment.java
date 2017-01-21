@@ -70,18 +70,19 @@ public class ComicCreatorDetailFragment extends Fragment implements ComicCreator
             mComic = (Comic) bundle.getSerializable(AppConstants.EXTRA_COMIC_DETAIL);
         }
 
-        initDependacyInjection();
+        initDependancyInjection();
         initRecycleViewAdapter();
-        mComicsDetailsPresenter.attachView(this);
-        mComicsDetailsPresenter.setPresenter(mComic);
-        mComicsDetailsPresenter.onCreateView();
+        initPresenter();
         return  rootView;
     }
 
     private void initPresenter() {
+        mComicsDetailsPresenter.attachView(this);
+        mComicsDetailsPresenter.setPresenter(mComic);
+        mComicsDetailsPresenter.onCreateView();
     }
 
-    private void initDependacyInjection() {
+    private void initDependancyInjection() {
         MarvelComicsApp application = (MarvelComicsApp) getActivity().getApplication();
         DaggerComicDetailsComponent.builder().contextModule(new ContextModule(getContext()))
                 .appComponent(application.getAppComponent(getActivity()))
@@ -90,7 +91,13 @@ public class ComicCreatorDetailFragment extends Fragment implements ComicCreator
      }
 
     private void initRecycleViewAdapter() {
-        mLayoutManager = new LinearLayoutManager(getContext());
+       // mLayoutManager = new LinearLayoutManager();
+        mLayoutManager =   new LinearLayoutManager(getActivity()){
+            @Override
+            public boolean canScrollVertically() {
+                return false;
+            }
+        };
         mRecyclerView.setLayoutManager(mLayoutManager);
         mAdapter = new CreatorListAdapter(new ArrayList<Creator>(),getContext());
         mRecyclerView.setAdapter(mAdapter);
@@ -117,12 +124,12 @@ public class ComicCreatorDetailFragment extends Fragment implements ComicCreator
 
     @Override
     public void showNoDataAvailable() {
+        mMessage.setVisibility(View.VISIBLE);
         mMessage.setText(getString(R.string.no_detail));
     }
 
     @Override
     public void showCreatorList(List<Creator> creatorList) {
-        mRecyclerView.setVisibility(View.VISIBLE);
         mAdapter.setCreatorList(creatorList);
     }
 

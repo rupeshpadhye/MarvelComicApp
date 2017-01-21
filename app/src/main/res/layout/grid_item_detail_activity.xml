@@ -19,7 +19,6 @@
             android:layout_height="wrap_content"
             tools:layout="@layout/comic_characters" />
 
-
         <fragment
             android:id="@+id/fragment_comic_character"
             android:name="com.marvel.android.app.ui.fragment.ComicCharacterDetailFragment"
