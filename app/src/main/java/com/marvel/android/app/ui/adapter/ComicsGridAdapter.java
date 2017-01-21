@@ -20,12 +20,12 @@ import java.util.List;
  * Created by RUPESH on 1/20/2017.
  */
 
-public class GridAdapter  extends ArrayAdapter<Comic> {
+public class ComicsGridAdapter extends ArrayAdapter<Comic> {
     private Context mContext;
     private int layoutResourceId;
     private List<Comic> mGridData;
 
-    public GridAdapter(Context mContext, int layoutResourceId, List<Comic> mGridData) {
+    public ComicsGridAdapter(Context mContext, int layoutResourceId, List<Comic> mGridData) {
         super(mContext, layoutResourceId, mGridData);
         this.layoutResourceId = layoutResourceId;
         this.mContext = mContext;

@@ -12,4 +12,12 @@ public class Thumbnail implements Serializable {
     public String getImageUrl () {
         return String.format("%s.%s", path, extension);
     }
+
+    @Override
+    public String toString() {
+        return "Thumbnail{" +
+                "path='" + path + '\'' +
+                ", extension='" + extension + '\'' +
+                '}';
+    }
 }

@@ -59,6 +59,8 @@ dependencies {
 
     compile ("com.google.code.gson:gson:$gsonVersion")
 
+    compile 'de.hdodenhof:circleimageview:2.1.0'
+
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })

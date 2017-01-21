@@ -64,12 +64,13 @@ public class AppModule {
                .build();
     }
 
-    @Provides @Named("executor_thread")
+    @Provides
+    @Named("executor_thread")
     Scheduler provideExecutorThread() {
         return Schedulers.newThread();
     }
 
-    @Provides @Named("ui_thread")
+    @Provides  @Named("ui_thread")
     Scheduler provideUiThread() {
         return AndroidSchedulers.mainThread();
     }

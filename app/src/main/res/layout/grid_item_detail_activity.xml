@@ -1,8 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/comic_detail_fragment"
-    >
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <fragment
+            android:id="@+id/fragment_comic_details"
+            android:name="com.marvel.android.app.ui.fragment.ComicDetailsFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout="@layout/comic_characters" />
+
+
+        <fragment
+            android:id="@+id/fragment_comic_character"
+            android:name="com.marvel.android.app.ui.fragment.ComicCharacterDetailFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout="@layout/comic_characters" />
+
+        <fragment
+            android:id="@+id/fragment_comic_creator"
+            android:name="com.marvel.android.app.ui.fragment.ComicCreatorDetailFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout="@layout/comic_characters" />
+    </LinearLayout>
+</ScrollView>

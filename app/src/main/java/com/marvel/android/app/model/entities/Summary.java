@@ -34,4 +34,13 @@ public class Summary implements Serializable {
     public void setRole(String role) {
         this.role = role;
     }
+
+    @Override
+    public String toString() {
+        return "Summary{" +
+                "resourceURI='" + resourceURI + '\'' +
+                ", name='" + name + '\'' +
+                ", role='" + role + '\'' +
+                '}';
+    }
 }

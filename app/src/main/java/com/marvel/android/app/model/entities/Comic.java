@@ -9,20 +9,22 @@ import java.util.List;
 
 public class Comic implements Serializable {
 
-    private String id;
+    private int id;
     private String title;
     private String description;
+    private String isbn;
     private Thumbnail thumbnail;
     private List<TextObject> textObjects;
     private List<ComicDate> dates;
+    private ComicsCollection creators;
+    private ComicsCollection characters;
     private int pageCount;
 
-
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -72,6 +74,47 @@ public class Comic implements Serializable {
 
     public void setPageCount(int pageCount) {
         this.pageCount = pageCount;
+    }
+    public String getIsbn() {
+        return isbn;
+    }
+
+
+    public ComicsCollection getCreators() {
+        return creators;
+    }
+
+    public void setCreators(ComicsCollection creators) {
+        this.creators = creators;
+    }
+
+    public ComicsCollection getCharacters() {
+        return characters;
+    }
+
+    public void setCharacters(ComicsCollection characters) {
+        this.characters = characters;
+    }
+
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+    @Override
+    public String toString() {
+        return "Comic{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", isbn='" + isbn + '\'' +
+                ", thumbnail=" + thumbnail +
+                ", textObjects=" + textObjects +
+                ", dates=" + dates +
+                ", creators=" + creators +
+                ", characters=" + characters +
+                ", pageCount=" + pageCount +
+                '}';
     }
 }
 

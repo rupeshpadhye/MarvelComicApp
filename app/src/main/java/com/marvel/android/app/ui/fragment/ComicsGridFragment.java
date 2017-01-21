@@ -18,7 +18,7 @@ import com.marvel.android.app.MarvelComicsApp;
 import com.marvel.android.app.R;
 import com.marvel.android.app.model.entities.Comic;
 import com.marvel.android.app.presenter.ComicsPresenter;
-import com.marvel.android.app.ui.adapter.GridAdapter;
+import com.marvel.android.app.ui.adapter.ComicsGridAdapter;
 import com.marvel.android.app.util.AppConstants;
 import com.marvel.android.app.view.ComicsGridView;
 
@@ -50,7 +50,7 @@ public class ComicsGridFragment extends Fragment implements ComicsGridView {
     SwipeRefreshLayout mSwipeRefreshLayout;
 
     private static int mPosition = GridView.INVALID_POSITION;
-    private GridAdapter mGridAdapter;
+    private ComicsGridAdapter mGridAdapter;
     private OnGridItemSelected mOnGridItemSelected;
 
 
@@ -143,7 +143,7 @@ public class ComicsGridFragment extends Fragment implements ComicsGridView {
     }
 
     private void initiateAdapter() {
-        mGridAdapter = new GridAdapter(getActivity(), R.layout.grid_item, new ArrayList<>());
+        mGridAdapter = new ComicsGridAdapter(getActivity(), R.layout.grid_item, new ArrayList<>());
     }
 
     private void initializePresenter() {

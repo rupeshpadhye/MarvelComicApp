@@ -1,47 +1,46 @@
 package com.marvel.android.app.model.entities;
 
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * Created by RUPESH on 1/19/2017.
  */
 
 public class Creator implements Serializable {
-    int available;
-    int returned;
-    int collectionURI;
-    List<Summary> creatorSummaryList;
-
-    public int getAvailable() {
-        return available;
+  private int id;
+  private String fullName;
+  private Thumbnail thumbnail;
+  private  String role;
+    public int getId() {
+        return id;
     }
 
-    public void setAvailable(int available) {
-        this.available = available;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public int getReturned() {
-        return returned;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setReturned(int returned) {
-        this.returned = returned;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
-    public int getCollectionURI() {
-        return collectionURI;
+    public Thumbnail getThumbnail() {
+        return thumbnail;
     }
 
-    public void setCollectionURI(int collectionURI) {
-        this.collectionURI = collectionURI;
+    public void setThumbnail(Thumbnail thumbnail) {
+        this.thumbnail = thumbnail;
     }
 
-    public List<Summary> getCreatorSummaryList() {
-        return creatorSummaryList;
-    }
-
-    public void setCreatorSummaryList(List<Summary> creatorSummaryList) {
-        this.creatorSummaryList = creatorSummaryList;
+    @Override
+    public String toString() {
+        return "Creator{" +
+                "id=" + id +
+                ", fullName='" + fullName + '\'' +
+                ", thumbnail=" + thumbnail +
+                '}';
     }
 }

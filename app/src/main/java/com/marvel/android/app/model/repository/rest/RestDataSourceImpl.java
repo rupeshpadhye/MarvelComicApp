@@ -7,7 +7,7 @@ import com.google.gson.reflect.TypeToken;
 import com.marvel.android.app.model.entities.Character;
 import com.marvel.android.app.model.entities.Comic;
 import com.marvel.android.app.model.entities.Creator;
-import com.marvel.android.app.model.repository.rest.deserializer.MarvelComicDeserializer;
+import com.marvel.android.app.model.repository.rest.deserializer.MarvelResultDeserializer;
 import com.marvel.android.app.model.repository.rest.endpoints.Endpoint;
 import com.marvel.android.app.model.repository.rest.endpoints.MarvelApi;
 import com.marvel.android.app.model.repository.rest.endpoints.MarvelAuthorizer;
@@ -47,7 +47,11 @@ public class RestDataSourceImpl implements RestDataSource {
 
         Gson customGsonInstance = new GsonBuilder()
                 .registerTypeAdapter(new TypeToken<List<Comic>>() {}.getType(),
-                        new MarvelComicDeserializer())
+                        new MarvelResultDeserializer<Comic>())
+                .registerTypeAdapter(new TypeToken<List<Character>>() {}.getType(),
+                        new MarvelResultDeserializer<Character>())
+                .registerTypeAdapter(new TypeToken<List<Creator>>() {}.getType(),
+                        new MarvelResultDeserializer<Creator>())
                 .create();
 
         Retrofit marvelApiAdapter = new Retrofit.Builder()
