@@ -32,14 +32,14 @@ configure(allprojects) {
         butterKnifeVersion="8.4.0"
         okHttpVesion="2.2.0"
         picassoVersion="2.5.2"
-        daggerVersion="2.2"
+        daggerVersion="2.5"
         gsonVersion="2.2.4"
         rxJavaVersion="1.1.6"
         rxAndroidVersion="1.2.1"
         retrofitVersion="2.0.2"
         jsrApiVersion="1.0"
-        marvel_public_key="04b925955af539c1e4a5b6326a3cab75"
-        marvel_private_key="8ba66d69f97be1af5d2d585ca405506b9bddff1d"
+        marvel_public_key="ADD_MARVEL_PUBLIC_KEY"
+        marvel_private_key="ADD_MARVEL_PRIVATE_KEY"
         marvel_base_url="http://gateway.marvel.com/"
     }
 
