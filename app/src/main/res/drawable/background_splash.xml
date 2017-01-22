@@ -2,13 +2,13 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item>
-        <color android:color="@color/colorPrimary"></color>
+        <color android:color="@color/background_holo_light"></color>
     </item>
-   <!-- <item>
+    <item>
         <bitmap
             android:gravity="center_horizontal|center_vertical"
-            android:src="@drawable/splash_screen"
+            android:src="@drawable/spash_image"
             />
-    </item>-->
+    </item>
 
 </layer-list>
