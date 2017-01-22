@@ -4,4 +4,5 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="app_default_margin">16dp</dimen>
     <dimen name="text_small_margin">4dp</dimen>
+    <dimen name="text_medium_margin">10dp</dimen>
 </resources>
