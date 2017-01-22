@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,8 +46,7 @@ public class ComicsGridFragment extends Fragment implements ComicsGridView {
     RelativeLayout mRelativeLayout;
     @BindView(R.id.progressBar)
     ProgressBar mProgressBar;
-    @BindView(R.id.swipeContainer)
-    SwipeRefreshLayout mSwipeRefreshLayout;
+
 
     private static int mPosition = GridView.INVALID_POSITION;
     protected ComicsGridAdapter mGridAdapter;
@@ -173,18 +171,7 @@ public class ComicsGridFragment extends Fragment implements ComicsGridView {
     }
 
     @Override
-    public void showPullToRefresh() {
-        mSwipeRefreshLayout.setRefreshing(true);
-    }
-
-    @Override
-    public void hidePullToRefresh() {
-        mSwipeRefreshLayout.setRefreshing(false);
-    }
-
-    @Override
     public void showNetworkError() {
-        Log.d("RUPESH",getString(R.string.no_network));
         Snackbar.make(mRelativeLayout, getString(R.string.no_network), Snackbar.LENGTH_SHORT).show();
     }
 
@@ -201,12 +188,6 @@ public class ComicsGridFragment extends Fragment implements ComicsGridView {
     @Override
     public void showNoComicsAvailable() {
         Snackbar.make(mRelativeLayout, getString(R.string.comics_not_available), Snackbar.LENGTH_SHORT).show();
-    }
-
-
-    @Override
-    public void updateComicLimit(int limit) {
-
     }
 
     @Override

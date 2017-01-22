@@ -72,7 +72,6 @@ public class ComicsPresenter implements  Presenter {
         else {
         //    mComicsListView.showNetworkError();
             mComicsListView.hideLoadingSpinner();
-            mComicsListView.hidePullToRefresh();
         }
     }
 
@@ -85,7 +84,6 @@ public class ComicsPresenter implements  Presenter {
 
     private void onComicsRetrievError(Throwable error) {
         mComicsListView.hideLoadingSpinner();
-        mComicsListView.hidePullToRefresh();
         mComicsListView.showServerError();
         Log.e(TAG,error.toString());
         isRequestInProcess=false;
@@ -94,7 +92,6 @@ public class ComicsPresenter implements  Presenter {
     private void onComicsRetrieved(List<Comic> newCharacters) {
         mComicsListView.showComics();
         mComicsListView.hideLoadingSpinner();
-        mComicsListView.hidePullToRefresh();
         mComicList.addAll(newCharacters);
         mComicsListView.bindComics(mComicList);
         isRequestInProcess=false;

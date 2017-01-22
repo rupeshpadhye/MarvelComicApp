@@ -12,11 +12,8 @@ public interface ComicsGridView extends MvpView {
     void bindComics(List<Comic> comics);
     void showComics();
     void hideComics();
-    void updateComicLimit(int limit);
     void showLoadingSpinner();
     void hideLoadingSpinner();
-    void showPullToRefresh();
-    void hidePullToRefresh();
     void showNetworkError();
     void showServerError();
     void showComicDetail(Comic comic);
