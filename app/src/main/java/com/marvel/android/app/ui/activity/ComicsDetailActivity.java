@@ -37,7 +37,7 @@ public class ComicsDetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.grid_item_detail_activity);
+        setContentView(R.layout.comic_detail_activity);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
         intializeDependecyInjection();

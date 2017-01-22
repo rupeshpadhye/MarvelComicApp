@@ -39,7 +39,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
-            android:textColor="#303030"
+            android:textColor="@color/desc_color"
             style="@style/Base.TextAppearance.AppCompat.Body1"
             />
         <TextView
@@ -47,65 +47,12 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
-            android:textColor="#303030"
+            android:textColor="@color/subdesc_color"
             android:maxLines="1"
             android:ellipsize="end"
             android:text="Writer"
             style="@style/Base.TextAppearance.AppCompat.Body1"
             />
-
-
-       <!-- <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:weightSum="3"
-            android:paddingTop="8dp"
-            android:paddingLeft="4dp"
-            >
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_weight="3"
-                >
-
-                <TextView
-                    android:id="@+id/character_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/colorPrimary"
-                    android:text="Rupesh Padhye"
-                    android:maxLines="1"
-                    style="@style/Base.TextAppearance.AppCompat.Title"
-                    android:ellipsize="end"
-                    />
-
-
-                <TextView
-                    android:id="@+id/character_desc"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="1dp"
-                    android:textColor="#303030"
-                    android:maxLines="1"
-                    android:ellipsize="end"
-                    android:text="Writer"
-                    style="@style/Base.TextAppearance.AppCompat.Body1"
-                    />
-                <TextView
-                    android:id="@+id/role"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="1dp"
-                    android:textColor="#303030"
-                    android:maxLines="1"
-                    android:ellipsize="end"
-                    android:text="Writer"
-                    style="@style/Base.TextAppearance.AppCompat.Body1"
-                    />
-            </LinearLayout>
-        </LinearLayout>-->
     </LinearLayout>
 
     <LinearLayout
