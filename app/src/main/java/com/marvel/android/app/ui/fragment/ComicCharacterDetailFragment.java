@@ -98,7 +98,7 @@ public class ComicCharacterDetailFragment extends Fragment implements ComicChara
             }
         };
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mAdapter = new CharactersListAdapter(new ArrayList<Character>(),getContext());
+        mAdapter = new CharactersListAdapter(new ArrayList<>(),getContext());
         mRecyclerView.setAdapter(mAdapter);
 
     }
