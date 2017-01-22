@@ -11,4 +11,5 @@
     <string name="invalid_input">Invalid Input </string>
     <string name="comics_not_available">Comics Not Available</string>
     <string name="comics_not_available_with_start">Comics Not Available Starting From %1$s</string>
+    <string name="tap_to_close">Tap Again to close application</string>
 </resources>

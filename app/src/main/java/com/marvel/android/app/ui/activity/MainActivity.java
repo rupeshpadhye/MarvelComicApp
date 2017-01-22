@@ -2,7 +2,10 @@ package com.marvel.android.app.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 
 import com.marvel.android.app.MarvelComicsApp;
@@ -19,6 +22,10 @@ public class MainActivity extends AppCompatActivity implements ComicsGridFragmen
 
     @BindView(R.id.bottom_navigation)
     BottomNavigationView bottomNavigationView;
+
+    @BindView(R.id.cordinatelayout)
+    CoordinatorLayout mCordinateLayout;
+    private boolean isDoubleTapped;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,8 +68,15 @@ public class MainActivity extends AppCompatActivity implements ComicsGridFragmen
     }
 
     @Override
-    public void onBackPressed(){
-        super.onBackPressed();
+    public void onBackPressed() {
+        if (this.isDoubleTapped) {
+            super.onBackPressed();
+            this.finishAffinity();
+            return;
+        }
+        this.isDoubleTapped = true;
+        Snackbar.make(mCordinateLayout, getString(R.string.tap_to_close), Snackbar.LENGTH_SHORT).show();
+        new Handler().postDelayed(() -> isDoubleTapped = false, 2000);
     }
 
     @Override

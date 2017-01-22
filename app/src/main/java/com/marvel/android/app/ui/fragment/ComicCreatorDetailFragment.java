@@ -3,6 +3,7 @@ package com.marvel.android.app.ui.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -99,6 +100,10 @@ public class ComicCreatorDetailFragment extends Fragment implements ComicCreator
             }
         };
         mRecyclerView.setLayoutManager(mLayoutManager);
+
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(mRecyclerView.getContext(),
+                mLayoutManager.getLayoutDirection() );
+        mRecyclerView.addItemDecoration(dividerItemDecoration);
         mAdapter = new CreatorListAdapter(new ArrayList<Creator>(),getContext());
         mRecyclerView.setAdapter(mAdapter);
 
