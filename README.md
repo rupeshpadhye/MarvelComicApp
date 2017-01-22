@@ -8,6 +8,12 @@
 - Shows all the Available comics with pagination capability
 - Search comic by title with pagination capability
 - Comic Details contains Comic description ,Characters and Creators information
+####Screen Shots 
+
+![Home Screen](screenshots/home.png)
+
+![Comic Detail Screen](screenshots/detail_1.png)
+
 
 ####External Libraries used
 - dagger2
