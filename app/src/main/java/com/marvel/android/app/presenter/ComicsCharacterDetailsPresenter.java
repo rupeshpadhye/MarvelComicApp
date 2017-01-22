@@ -49,9 +49,7 @@ public class ComicsCharacterDetailsPresenter implements Presenter {
 
     @Override
     public void onPause() {
-        if(mComicsCharacterSubscription!=null && mComicsCharacterSubscription.isUnsubscribed()){
-            mComicsCharacterSubscription.unsubscribe();
-        }
+
     }
 
     @Override

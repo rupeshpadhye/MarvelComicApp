@@ -35,20 +35,17 @@ public class ComicsPresenter implements  Presenter {
     }
     @Override
     public void onStart() {
-
     }
 
     @Override
     public void onStop() {
-
+        if(mComicsSubscription!=null && mComicsSubscription.isUnsubscribed()){
+            mComicsSubscription.unsubscribe();
+        }
     }
 
     @Override
     public void onPause() {
-        if(mComicsSubscription !=null){
-            mComicsSubscription.unsubscribe();
-        }
-        isRequestInProcess=false;
 
     }
 
@@ -139,4 +136,5 @@ public class ComicsPresenter implements  Presenter {
             mComicsListView.showNoComicsAvailable();
         }
     }
+
 }

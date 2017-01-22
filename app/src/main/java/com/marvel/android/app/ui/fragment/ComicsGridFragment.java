@@ -75,6 +75,7 @@ public class ComicsGridFragment extends Fragment implements ComicsGridView {
             mGridAdapter.setGridData(ComList);
             hideLoadingSpinner();
             showComics();
+
         } else {
             comicsPresenter.onCreateView();
         }
@@ -129,6 +130,7 @@ public class ComicsGridFragment extends Fragment implements ComicsGridView {
         super.onStart();
         comicsPresenter.onStart();
     }
+
 
     @Override
     public void onPause() {
