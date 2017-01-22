@@ -25,7 +25,7 @@
             style="@style/Base.TextAppearance.AppCompat.Medium"
             android:textColor="@color/colorPrimaryDark"
             />
-        <View style="@style/Divider" />
+        <View style="@style/HeaderDivider" />
         <ProgressBar
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"

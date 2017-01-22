@@ -39,20 +39,21 @@
                     android:id="@+id/searchText"
                     android:inputType="text"
                     android:saveEnabled="true"
-                    android:hint="@string/search"
+                    android:hint="@string/search_by_title"
                     android:layout_marginLeft="16dp"
                     android:imeOptions="actionDone"
                     />
             </android.support.design.widget.TextInputLayout>
-            <ImageButton
+            <android.support.design.widget.VisibilityAwareImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/searchButton"
                 android:src="@drawable/ic_search"
-                android:contentDescription="@string/search"
+                android:contentDescription="@string/search_by_title"
                 android:layout_toRightOf="@id/searchTextLayout"
-                style="?android:attr/buttonBarButtonStyle"
                 android:tint="@color/colorPrimary"
+                android:paddingRight="16dp"
+                android:layout_gravity="center_vertical"
                 />
         </LinearLayout>
         <GridView

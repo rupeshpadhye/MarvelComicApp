@@ -18,7 +18,13 @@
     <style name="Divider" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1dp</item>
-        <item name="android:background">?android:attr/listDivider</item>
+        <item name="android:background">@color/divider_color</item>
+    </style>
+
+    <style name="HeaderDivider" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/colorAccent</item>
     </style>
 
     <style name="expandedappbar" parent="@android:style/TextAppearance.Medium">

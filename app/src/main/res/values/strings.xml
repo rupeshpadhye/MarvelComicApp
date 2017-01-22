@@ -12,4 +12,5 @@
     <string name="comics_not_available">Comics Not Available</string>
     <string name="comics_not_available_with_start">Comics Not Available Starting From %1$s</string>
     <string name="tap_to_close">Tap Again to close application</string>
+    <string name="search_by_title">Search comics by title</string>
 </resources>

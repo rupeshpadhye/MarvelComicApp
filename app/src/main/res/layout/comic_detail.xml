@@ -27,7 +27,7 @@
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                 android:textColor="@color/colorPrimaryDark" />
 
-            <View style="@style/Divider" />
+            <View style="@style/HeaderDivider" />
             <TextView
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
