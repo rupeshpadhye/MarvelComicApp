@@ -68,8 +68,8 @@ public class RestDataSourceImpl implements RestDataSource {
     }
 
     @Override
-    public Observable<List<Comic>> getComics(int limit,int offset) {
-        return mMarvelApi.getComics(limit,offset);
+    public Observable<List<Comic>> getComics(int limit,int offset,String titleStartsWith) {
+        return mMarvelApi.getComics(limit,offset,titleStartsWith);
     }
 
     @Override

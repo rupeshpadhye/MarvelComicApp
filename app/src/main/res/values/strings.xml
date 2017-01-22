@@ -7,4 +7,8 @@
     <string name="comics_characters">Characters</string>
     <string name="comics_creator">Creators</string>
     <string name="no_detail">Details Not Available</string>
+    <string name="search">Search</string>
+    <string name="invalid_input">Invalid Input </string>
+    <string name="comics_not_available">Comics Not Available</string>
+    <string name="comics_not_available_with_start">Comics Not Available Starting From %1$s</string>
 </resources>

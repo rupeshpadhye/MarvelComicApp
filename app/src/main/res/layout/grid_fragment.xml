@@ -11,8 +11,7 @@
         android:layout_height="match_parent"
         android:visibility="gone"
         >
-    </android.support.v4.widget.SwipeRefreshLayout>
-
+</android.support.v4.widget.SwipeRefreshLayout>
 
     <GridView
         android:id="@+id/grid"

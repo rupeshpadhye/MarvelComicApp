@@ -17,7 +17,7 @@ import rx.Observable;
 
 public interface MarvelApi {
     @GET("/v1/public/comics")
-    Observable<List<Comic>> getComics (@Query("limit") int limit,@Query("offset") int offset);
+    Observable<List<Comic>> getComics (@Query("limit") int limit,@Query("offset") int offset,@Query("titleStartsWith")String titleStartsWith );
 
     @GET("/v1/public/comics/{comicId}/characters")
     Observable<List<Character>> getComicCharacters(@Path("comicId") int comicId);

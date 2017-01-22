@@ -17,7 +17,7 @@ public interface RestDataSource {
      String PARAM_HASH      = "hash";
      String PARAM_TIMESTAMP = "ts";
 
-    Observable<List<Comic>> getComics(int defaultComicsLimit, int mCurrentOffset);
+    Observable<List<Comic>> getComics(int defaultComicsLimit, int mCurrentOffset,String titleStartsWith);
     Observable<List<Character>> getComicCharacters(int comicId);
     Observable<List<Creator>> getComicCreators(int comicId);
 }

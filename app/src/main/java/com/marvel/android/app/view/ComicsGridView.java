@@ -20,4 +20,5 @@ public interface ComicsGridView extends MvpView {
     void showNetworkError();
     void showServerError();
     void showComicDetail(Comic comic);
+    void showNoComicsAvailable();
 }

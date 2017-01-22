@@ -39,7 +39,7 @@ import butterknife.ButterKnife;
 public class ComicsGridFragment extends Fragment implements ComicsGridView {
 
     @Inject
-    ComicsPresenter comicsPresenter;
+    protected  ComicsPresenter comicsPresenter;
 
     @BindView(R.id.grid)
     GridView mProductGridView;
@@ -51,7 +51,7 @@ public class ComicsGridFragment extends Fragment implements ComicsGridView {
     SwipeRefreshLayout mSwipeRefreshLayout;
 
     private static int mPosition = GridView.INVALID_POSITION;
-    private ComicsGridAdapter mGridAdapter;
+    protected ComicsGridAdapter mGridAdapter;
     private OnGridItemSelected mOnGridItemSelected;
 
 
@@ -93,7 +93,7 @@ public class ComicsGridFragment extends Fragment implements ComicsGridView {
         }
     }
 
-    private void intializeViewComponents() {
+    public void intializeViewComponents() {
         mProductGridView.setAdapter(mGridAdapter);
         mProductGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -105,16 +105,18 @@ public class ComicsGridFragment extends Fragment implements ComicsGridView {
         });
 
         mProductGridView.setOnScrollListener(new AbsListView.OnScrollListener() {
-
+            private boolean isScrolled=false;
             @Override
             public void onScrollStateChanged(AbsListView view, int scrollState) {
-
+                if(scrollState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL){
+                    isScrolled = true;
+                }
             }
             @Override
             public void onScroll(AbsListView view, int firstVisibleItem,
                                  int visibleItemCount, int totalItemCount) {
                 int lastInScreen = firstVisibleItem + visibleItemCount;
-                if ((lastInScreen == totalItemCount)) {
+                if (isScrolled && lastInScreen == totalItemCount) {
                     Log.d("RUPESH","Load more");
                     comicsPresenter.onListEndReached();
                 }
@@ -140,7 +142,7 @@ public class ComicsGridFragment extends Fragment implements ComicsGridView {
         mGridAdapter = new ComicsGridAdapter(getActivity(), R.layout.grid_item, new ArrayList<>());
     }
 
-    private void initializePresenter() {
+    protected void initializePresenter() {
         comicsPresenter.attachView(this);
     }
 
@@ -182,6 +184,7 @@ public class ComicsGridFragment extends Fragment implements ComicsGridView {
 
     @Override
     public void showNetworkError() {
+        Log.d("RUPESH",getString(R.string.no_network));
         Snackbar.make(mRelativeLayout, getString(R.string.no_network), Snackbar.LENGTH_SHORT).show();
     }
 
@@ -193,6 +196,11 @@ public class ComicsGridFragment extends Fragment implements ComicsGridView {
     @Override
     public void showComicDetail(Comic comic) {
         mOnGridItemSelected.OnItemClicked(comic);
+    }
+
+    @Override
+    public void showNoComicsAvailable() {
+        Snackbar.make(mRelativeLayout, getString(R.string.comics_not_available), Snackbar.LENGTH_SHORT).show();
     }
 
 

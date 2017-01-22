@@ -98,17 +98,13 @@ public class ComicsPresenter implements  Presenter {
         mComicList.addAll(newCharacters);
         mComicsListView.bindComics(mComicList);
         isRequestInProcess=false;
-
     }
 
-    public void doPullToRefresh() {
-        if (isConnectedToNetwork()) {
-            mComicsListView.showPullToRefresh();
-            fetchComics();
-        } else {
-            mComicsListView.showNetworkError();
-            mComicsListView.hidePullToRefresh();
-        }
+    public void findComicsStartingByTitle(String titleStartsWith){
+        mComicsListView.showLoadingSpinner();
+        mComicsListView.hideComics();
+        mGetComicsUseCase.settitleStartsWith(titleStartsWith);
+        searchComics();
     }
 
     public void onProductSelected(Comic comic) {
@@ -130,6 +126,20 @@ public class ComicsPresenter implements  Presenter {
         if(!isRequestInProcess){
             fetchComics();
         }
+    }
+    private void searchComics() {
+        mComicsSubscription = mGetComicsUseCase.execute()
+                .subscribe(this::onComicSearchResult, this::onComicsRetrievError);
+    }
 
+    private void onComicSearchResult(List<Comic> comics) {
+        mComicsListView.hideLoadingSpinner();
+        if(comics.size()>0){
+            mComicsListView.bindComics(comics);
+            mComicsListView.showComics();
+        }
+        else{
+            mComicsListView.showNoComicsAvailable();
+        }
     }
 }

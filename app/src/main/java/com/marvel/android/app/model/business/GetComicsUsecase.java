@@ -1,5 +1,7 @@
 package com.marvel.android.app.model.business;
 
+import android.util.Log;
+
 import com.marvel.android.app.model.entities.Comic;
 import com.marvel.android.app.model.repository.rest.RestDataSource;
 
@@ -17,7 +19,7 @@ public class GetComicsUseCase extends UseCase<List<Comic>> {
     private int mComicsLimit = DEFAULT_COMICS_LIMIT;
     private final RestDataSource mRepository;
     private int mCurrentOffset;
-
+    private String titleStartsWith;
     private final Scheduler mUiThread;
     private final Scheduler mExecutorThread;
 
@@ -32,7 +34,8 @@ public class GetComicsUseCase extends UseCase<List<Comic>> {
 
     @Override
     public Observable<List<Comic>> buildObservable() {
-        return mRepository.getComics(DEFAULT_COMICS_LIMIT,mCurrentOffset)
+        Log.d("RUPESH","titleStartsWith"+titleStartsWith);
+        return mRepository.getComics(DEFAULT_COMICS_LIMIT,mCurrentOffset,titleStartsWith)
             .observeOn(mUiThread)
             .subscribeOn(mExecutorThread)
             .doOnError(new Action1<Throwable>() {
@@ -55,5 +58,9 @@ public class GetComicsUseCase extends UseCase<List<Comic>> {
 
     public int getCurrentOffset() {
         return mCurrentOffset;
+    }
+
+    public void settitleStartsWith(String titleStartsWith) {
+        this.titleStartsWith = titleStartsWith;
     }
 }
